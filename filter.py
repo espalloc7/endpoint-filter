@@ -9,7 +9,7 @@ for endpoint in endpoints:
     try:
         response = requests.get(endpoint)
         # If the response does not contain '401', add it to the list
-        if '401' not in response.text:
+        if '401' not in response.text.lower():
             alive.append(endpoint)
     except requests.exceptions.RequestException as e:
         print(f"An error occurred with endpoint {endpoint}: {e}")
